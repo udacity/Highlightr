@@ -63,7 +63,14 @@ open class CodeAttributedString : NSTextStorage
         setupListeners()
     }
     #endif
-    
+   
+    @available(iOS 11.0, *)
+    required public init(itemProviderData data: Data, typeIdentifier: String) throws
+    {
+        try super.init(itemProviderData: data, typeIdentifier: typeIdentifier)
+        setupListeners()
+    }
+ 
     /// Language syntax to use for highlighting. Providing nil will disable highlighting.
     open var language : String?
     {
